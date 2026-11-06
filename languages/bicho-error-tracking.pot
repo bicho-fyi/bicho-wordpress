@@ -1,0 +1,162 @@
+# Copyright (C) 2026 FreshJuice
+# This file is distributed under the Apache-2.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: Bicho 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/bicho-error-tracking\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-10-19T00:09:29+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: bicho-error-tracking\n"
+
+#. Plugin Name of the plugin
+#: bicho-wordpress.php
+#: includes/settings.php:38
+#: includes/settings.php:102
+msgid "Bicho"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: bicho-wordpress.php
+msgid "https://bicho.fyi"
+msgstr ""
+
+#. Description of the plugin
+#: bicho-wordpress.php
+msgid "Report PHP and browser errors to your own Bicho instance with independent settings for each reporting channel."
+msgstr ""
+
+#. Author of the plugin
+#: bicho-wordpress.php
+msgid "FreshJuice"
+msgstr ""
+
+#. Author URI of the plugin
+#: bicho-wordpress.php
+msgid "https://freshjuice.dev"
+msgstr ""
+
+#: bicho-wordpress.php:50
+msgid "Bicho requires its bundled SDK files. Install the complete plugin ZIP or run the build script."
+msgstr ""
+
+#: bicho-wordpress.php:60
+msgid "Settings"
+msgstr ""
+
+#: includes/config.php:149
+msgid "Invalid Bicho setting. The previous safe value was kept."
+msgstr ""
+
+#: includes/settings.php:29
+msgid "Reporting"
+msgstr ""
+
+#: includes/settings.php:45
+msgid "PHP reporting"
+msgstr ""
+
+#: includes/settings.php:45
+msgid "Enable server-side error reporting. Requires an endpoint and public key; a backend ingest secret is optional."
+msgstr ""
+
+#: includes/settings.php:46
+msgid "PHP endpoint"
+msgstr ""
+
+#: includes/settings.php:46
+msgid "HTTPS URL ending exactly in /v1/logs. HTTP is allowed only for localhost, 127.0.0.1 or [::1] testing."
+msgstr ""
+
+#: includes/settings.php:47
+msgid "PHP public key"
+msgstr ""
+
+#: includes/settings.php:47
+msgid "The public key for server-side reporting."
+msgstr ""
+
+#: includes/settings.php:48
+msgid "PHP secret"
+msgstr ""
+
+#: includes/settings.php:48
+msgid "Leave blank to keep the saved secret. The secret is never displayed."
+msgstr ""
+
+#: includes/settings.php:49
+msgid "JavaScript reporting"
+msgstr ""
+
+#: includes/settings.php:49
+msgid "Enable browser error reporting. Requires an endpoint and public key."
+msgstr ""
+
+#: includes/settings.php:50
+msgid "JavaScript endpoint"
+msgstr ""
+
+#: includes/settings.php:50
+msgid "HTTPS URL ending exactly in /v1/logs. HTTP is allowed only for loopback testing."
+msgstr ""
+
+#: includes/settings.php:51
+msgid "JavaScript public key"
+msgstr ""
+
+#: includes/settings.php:51
+msgid "The public key sent to browsers. Never enter a secret here."
+msgstr ""
+
+#: includes/settings.php:52
+msgid "Reporting diagnostics"
+msgstr ""
+
+#: includes/settings.php:52
+msgid "Log safe reporting diagnostics only, never credentials or captured event contents."
+msgstr ""
+
+#: includes/settings.php:53
+msgid "Environment"
+msgstr ""
+
+#: includes/settings.php:53
+msgid "For example: production or staging."
+msgstr ""
+
+#: includes/settings.php:54
+msgid "Release"
+msgstr ""
+
+#: includes/settings.php:54
+msgid "Optional application release identifier."
+msgstr ""
+
+#: includes/settings.php:79
+msgid "Saved secret (unchanged)"
+msgstr ""
+
+#: includes/settings.php:82
+msgid "Clear saved secret"
+msgstr ""
+
+#: includes/settings.php:88
+msgid "Configured by constant (for example, in wp-config.php):"
+msgstr ""
+
+#: includes/settings.php:89
+msgid "Configured by environment variable:"
+msgstr ""
+
+#: includes/settings.php:92
+msgid "Configured by dashboard"
+msgstr ""
+
+#: includes/settings.php:99
+msgid "You do not have permission to access this page."
+msgstr ""

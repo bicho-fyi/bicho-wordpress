@@ -1,0 +1,21 @@
+{
+  "name": "bicho-wordpress",
+  "version": "1.0.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "author": "FreshJuice",
+  "scripts": {
+    "build": "php scripts/build.php",
+    "package": "python3 scripts/package.py",
+    "test": "php tests/config.php && php tests/runtime.php",
+    "test:wordpress": "bash scripts/test-wordpress.sh",
+    "test:browser": "node tests/browser.mjs"
+  },
+  "dependencies": {
+    "@bicho-fyi/javascript": "1.1.0"
+  },
+  "devDependencies": {
+    "axe-core": "4.14.0",
+    "puppeteer-core": "25.14.0"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "bicho-fyi/wordpress",
+  "description": "Bicho error monitoring for WordPress",
+  "type": "wordpress-plugin",
+  "license": "Apache-2.0",
+  "authors": [{"name": "FreshJuice"}],
+  "require": {
+    "php": ">=8.2",
+    "ext-curl": "*",
+    "bicho-fyi/php": "^1.0"
+  },
+  "config": {
+    "sort-packages": true,
+    "platform": {"php": "8.2.0"},
+    "allow-plugins": false
+  }
+}

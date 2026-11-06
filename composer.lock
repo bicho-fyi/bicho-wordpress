@@ -1,0 +1,79 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "bd3c2b30a8e6e69a5d86746473c5e148",
+    "packages": [
+        {
+            "name": "bicho-fyi/php",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bicho-fyi/bicho-php.git",
+                "reference": "60cbe70684fb6b5870ba4f427e511eeff2891648"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bicho-fyi/bicho-php/zipball/60cbe70684fb6b5870ba4f427e511eeff2891648",
+                "reference": "60cbe70684fb6b5870ba4f427e511eeff2891648",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=8.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Bicho\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "FreshJuice",
+                    "email": "contact@freshjuice.dev",
+                    "homepage": "https://freshjuice.dev/"
+                },
+                {
+                    "name": "Alex Zappa",
+                    "email": "alex@zappa.dev",
+                    "homepage": "https://alex.zappa.dev/"
+                }
+            ],
+            "description": "Report PHP exceptions and errors to Bicho over OTLP/HTTP JSON",
+            "homepage": "https://bicho.fyi",
+            "keywords": [
+                "bicho",
+                "error-tracking",
+                "otlp"
+            ],
+            "support": {
+                "issues": "https://github.com/bicho-fyi/bicho-php/issues",
+                "source": "https://github.com/bicho-fyi/bicho-php"
+            },
+            "time": "2026-10-18T13:09:54+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {},
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=8.2",
+        "ext-curl": "*"
+    },
+    "platform-dev": {},
+    "platform-overrides": {
+        "php": "8.2.0"
+    },
+    "plugin-api-version": "2.9.0"
+}

@@ -1,0 +1,8 @@
+node_modules/
+vendor/
+dist/
+build/
+_temp/
+.env*
+.DS_Store
+.idea/
