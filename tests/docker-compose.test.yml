@@ -1,0 +1,11 @@
+services:
+  wordpress:
+    ports:
+      - "127.0.0.1:8899:8899"
+    volumes:
+      - ./tests:/var/bicho-tests:ro
+      - ./_temp/wordpress:/var/bicho-output
+  wp-cli:
+    volumes:
+      - ./tests:/var/bicho-tests:ro
+      - ./_temp/wordpress:/var/bicho-output

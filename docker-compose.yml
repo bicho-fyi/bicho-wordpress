@@ -1,0 +1,70 @@
+name: bicho-wordpress
+services:
+  db:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: ${WP_DB_PASSWORD:?Set WP_DB_PASSWORD in an ignored .env file}
+      MYSQL_ROOT_PASSWORD: ${WP_DB_ROOT_PASSWORD:?Set WP_DB_ROOT_PASSWORD in an ignored .env file}
+    volumes:
+      - db-data:/var/lib/mysql
+    healthcheck:
+      test: [CMD-SHELL, 'MYSQL_PWD="$$MYSQL_PASSWORD" mysqladmin ping -h 127.0.0.1 -u "$$MYSQL_USER" --silent']
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 20s
+  wordpress:
+    image: wordpress:7.1.3-php8.2-apache
+    ports:
+      - "127.0.0.1:8896:80"
+    environment: &wp-environment
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: ${WP_DB_PASSWORD:?Set WP_DB_PASSWORD}
+      WORDPRESS_DEBUG: 1
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_DEBUG_LOG', true);
+        define('WP_DEBUG_DISPLAY', false);
+    volumes: &wp-volumes
+      - wp-data:/var/www/html
+      - ./bicho-wordpress.php:/var/www/html/wp-content/plugins/bicho-error-tracking/bicho-wordpress.php:ro
+      - ./uninstall.php:/var/www/html/wp-content/plugins/bicho-error-tracking/uninstall.php:ro
+      - ./readme.txt:/var/www/html/wp-content/plugins/bicho-error-tracking/readme.txt:ro
+      - ./LICENSE:/var/www/html/wp-content/plugins/bicho-error-tracking/LICENSE:ro
+      - ./ACKNOWLEDGEMENTS.md:/var/www/html/wp-content/plugins/bicho-error-tracking/ACKNOWLEDGEMENTS.txt:ro
+      - ./includes:/var/www/html/wp-content/plugins/bicho-error-tracking/includes:ro
+      - ./dist:/var/www/html/wp-content/plugins/bicho-error-tracking/dist:ro
+      - ./languages:/var/www/html/wp-content/plugins/bicho-error-tracking/languages:ro
+    depends_on:
+      db:
+        condition: service_healthy
+  wp-cli:
+    image: wordpress:cli-php8.2
+    user: "33:33"
+    working_dir: /var/www/html
+    environment:
+      <<: *wp-environment
+      WP_ADMIN_USER: ${WP_ADMIN_USER:-bicho}
+      WP_ADMIN_PASSWORD: ${WP_ADMIN_PASSWORD:?Set WP_ADMIN_PASSWORD in an ignored .env file}
+      WP_ADMIN_EMAIL: ${WP_ADMIN_EMAIL:-dev@example.test}
+      WP_CLI_CACHE_DIR: /var/www/html/wp-content/cache/wp-cli
+      WP_SITE_URL: http://localhost:8896
+    volumes: *wp-volumes
+    configs:
+      - source: wp-init
+        target: /usr/local/bin/bicho-wp-init
+    entrypoint: [/bin/sh, /usr/local/bin/bicho-wp-init]
+    depends_on:
+      db:
+        condition: service_healthy
+      wordpress:
+        condition: service_started
+configs:
+  wp-init:
+    file: ./scripts/wp-init.sh
+volumes:
+  db-data:
+  wp-data:

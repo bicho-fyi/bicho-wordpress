@@ -1,0 +1,10 @@
+name: bicho-wordpress-compat
+services:
+  wordpress:
+    image: wordpress:6.8-php8.2-apache
+    ports: !override
+      - "127.0.0.1:8898:80"
+  wp-cli:
+    image: wordpress:cli-php8.2
+    environment:
+      WP_SITE_URL: http://localhost:8898
